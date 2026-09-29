@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Personal daily planner: tasks, goals, habits, focus and daily review.">
+  <title>DayFlow</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Settings you can edit: config/site-config.js -->
+  <script src="config/site-config.js"></script>
+  <!-- Applies colors, fonts, dark mode and language before the page appears -->
+  <script src="js/boot.js"></script>
+</head>
+<body>
+  <a class="skip-link" id="skip-link" href="#main">Skip to content</a>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+
+    <div class="main-wrap">
+      <header class="topbar" id="topbar"></header>
+      <main class="main" id="main" tabindex="-1"></main>
+    </div>
+
+    <nav class="bottom-nav" id="bottom-nav"></nav>
+  </div>
+
+  <div id="modal-root" hidden></div>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+  <noscript><p style="padding:24px">This app needs JavaScript. / هذا التطبيق يحتاج JavaScript.</p></noscript>
+
+  <!-- Texts & demo data -->
+  <script src="config/texts.js"></script>
+  <script src="data/demo-data.js"></script>
+
+  <!-- Core -->
+  <script src="js/utils.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+
+  <!-- Features -->
+  <script src="js/tasks.js"></script>
+  <script src="js/goals.js"></script>
+  <script src="js/habits.js"></script>
+  <script src="js/focus.js"></script>
+  <script src="js/review.js"></script>
+  <script src="js/weekly.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/today.js"></script>
+  <script src="js/settings.js"></script>
+
+  <!-- Start the app -->
+  <script src="js/app.js"></script>
+</body>
+</html>

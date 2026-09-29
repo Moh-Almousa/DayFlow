@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Responsive: tablet & mobile
+   ========================================================================== */
+
+/* ---------- Tablet & phone: sidebar becomes a drawer ---------- */
+@media (max-width: 960px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    inset-inline-start: 0;
+    z-index: 40;
+    width: min(300px, 86vw);
+    height: 100%;
+    transform: translateX(-105%);
+    transition: transform 0.2s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+  }
+  [dir="rtl"] .sidebar { transform: translateX(105%); }
+  body.drawer-open .sidebar { transform: none; visibility: visible; }
+  body.drawer-open { overflow: hidden; }
+
+  .sidebar .drawer-close { display: inline-grid; }
+
+  .drawer-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 35;
+    background: rgba(15, 18, 22, 0.4);
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    background: color-mix(in srgb, var(--background) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar .brand-text small { display: none; }
+  .topbar-tools { display: flex; gap: 8px; }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+  .bottom-link {
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 2px;
+    font-size: 0.7rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .bottom-link .focus-badge { display: none; }
+
+  .main { padding: 20px 16px 96px; }
+  .toast-root { bottom: 84px; inset-inline-end: 16px; inset-inline-start: 16px; align-items: center; }
+
+  .top-grid, .dash-grid, .two-col { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 600px) {
+  body { font-size: 14.5px; }
+  h1 { font-size: 1.35rem; }
+
+  .page-header { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .page-actions { width: 100%; }
+  .page-actions > .btn-primary { flex: 1; }
+  .day-nav { width: 100%; }
+  .day-nav .date-input { flex: 1; min-width: 0; }
+  .day-nav > .btn-primary { width: 100%; }
+
+  .card { padding: 16px; }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .stat { padding: 12px; }
+  .stat-value { font-size: 1.15rem; }
+
+  .goal-grid, .habit-grid, .settings-grid { grid-template-columns: minmax(0, 1fr); }
+
+  /* Task actions go under the text */
+  .task { flex-wrap: wrap; }
+  .task-main { flex-basis: calc(100% - 40px); }
+  .task-actions { opacity: 1; width: 100%; justify-content: flex-end; margin-top: -4px; }
+
+  .tl-row { grid-template-columns: 46px 16px minmax(0, 1fr); }
+  .tl-time { font-size: 0.8rem; }
+
+  .habit-dot { width: 30px; height: 30px; }
+
+  .timer { width: 210px; height: 210px; }
+  .timer-text { font-size: 2.7rem; }
+  .focus-controls .btn { flex: 1 1 auto; }
+
+  /* Modal becomes a bottom sheet */
+  #modal-root { place-items: end center; padding: 0; }
+  .modal { max-width: 100%; max-height: 92vh; border-radius: 16px 16px 0 0; }
+  .modal-footer { padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+  .modal-footer .btn { flex: 1; }
+  .modal-footer .me-auto { flex: 0 0 auto; }
+
+  .bar-chart { gap: 4px; height: 170px; }
+  .ach-chart.is-dense { gap: 1px; }
+  .lbl-long { display: none; }
+  .lbl-short { display: inline; }
+  .filter-row { grid-template-columns: 1fr 1fr; }
+  .filter-row input { grid-column: 1 / -1; }
+  .heatmap.is-month .hm-cell, .heatmap.is-month .hm-days span { width: 22px; height: 22px; line-height: 22px; }
+}
